@@ -2,7 +2,7 @@
 
 ####Up project locally
 
-1) `cp .docker/.env.example .env`
+1) `cp .docker/.env.example .docker/.env`
 2) (optional) change env parameters in .docker/.env file
 3) `docker-compose --env-file .docker/.env up -d` **Warning**: at default application use 80 port. Check or this port is free, or change NGINX_LOCAL_PORT variable on .docker/.env file  
 4) `docker-compose exec app composer install`
