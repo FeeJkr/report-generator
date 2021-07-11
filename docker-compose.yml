@@ -6,10 +6,13 @@ services:
       - "80:8080"
     volumes:
       - ./:/app
+    env_file:
+      - ".docker/.env"
 
   mysql:
     image: mysql
     restart: always
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - "3306:3306"
     env_file:

@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XYZ Company</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-departments-tab" data-bs-toggle="tab" data-bs-target="#nav-departments" type="button" role="tab" aria-controls="nav-departments" aria-selected="true">Departments</button>
+                <button class="nav-link" id="nav-employees-tab" data-bs-toggle="tab" data-bs-target="#nav-employees" type="button" role="tab" aria-controls="nav-employees" aria-selected="false">Employees</button>
+                <button class="nav-link" id="nav-payroll-report-tab" data-bs-toggle="tab" data-bs-target="#nav-payroll-report" type="button" role="tab" aria-controls="nav-payroll-report" aria-selected="false">Payroll report</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-departments" role="tabpanel" aria-labelledby="nav-departments-tab">
+                <div class="container">
+                    <div class="mt-5" id="departments-alert-block">
+                    </div>
+
+
+                    <div class="mt-3">
+                        <h3>Add new department</h3>
+                    </div>
+
+                    <div class="mt-5">
+                        <div class="mb-3 row">
+                            <label for="department_name" class="col-sm-2 col-form-label">Department name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="department_name" name="name">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="extra_pay_type" class="col-sm-2 col-form-label">Extra pay type</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" name="extra_pay_type" id="extra_pay_type">
+                                    <option value="const">Constant value</option>
+                                    <option value="percentage">Percentage of basic salary</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="extra_pay_value" class="col-sm-2 col-form-label">Extra pay value</label>
+                            <div class="col-sm-10">
+                                <input type="number" step="0.01" class="form-control" id="extra_pay_value" name="extra_pay_value">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <button type="button" class="col-2 offset-md-10 btn btn-success" id="create-department-button">Create new</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Extra pay type</th>
+                            <th scope="col">Extra pay value</th>
+                        </tr>
+                        </thead>
+                        <tbody id="departments-table-body">
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-employees" role="tabpanel" aria-labelledby="nav-employees-tab">
+                <div class="container">
+                    <div class="mt-5" id="employees-alert-block">
+                    </div>
+
+                    <div class="mt-3">
+                        <h3>Add new employee</h3>
+                    </div>
+
+                    <div class="mt-5">
+                        <div class="mb-3 row">
+                            <label for="department" class="col-sm-2 col-form-label">Department</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" name="department" id="department">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="first_name" class="col-sm-2 col-form-label">First name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="first_name">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="last_name" class="col-sm-2 col-form-label">Last name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="last_name">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="salary" class="col-sm-2 col-form-label">Salary</label>
+                            <div class="col-sm-10">
+                                <input type="number" step="0.01" class="form-control" id="salary">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="employedAt" class="col-sm-2 col-form-label">Employed At</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="employedAt">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <button type="button" class="col-2 offset-md-10 btn btn-success" id="create-employee-button">Create new</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Department name</th>
+                            <th scope="col">First name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Employed At</th>
+                        </tr>
+                        </thead>
+                        <tbody id="employees-table-body">
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-payroll-report" role="tabpanel" aria-labelledby="nav-payroll-report-tab">
+                <div class="container mt-5">
+                    <div>
+                        <div class="mb-3 row">
+                            <label for="sort_field" class="col-sm-2 col-form-label">Sort</label>
+                            <div class="col-sm-5">
+                                <select class="form-select" id="sort_field">
+                                    <option value="">Without sorting</option>
+                                    <option value="first_name">First name</option>
+                                    <option value="last_name">Last name</option>
+                                    <option value="department">Department</option>
+                                    <option value="basic_salary">Basic salary</option>
+                                    <option value="extra_pay">Extra pay</option>
+                                    <option value="extra_pay_type">Extra pay type</option>
+                                    <option value="salary">Salary</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="form-select" id="sort_order">
+                                    <option value="ASC">ASC</option>
+                                    <option value="DESC">DESC</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <label for="sort-field" class="col-sm-2 col-form-label">Filters</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-3">Fist name</div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="first_name_filter">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-3">Last name</div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="last_name_filter">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-3">Department</div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="department_filter">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <button type="button" class="col-2 offset-md-10 btn btn-success" id="generate-report-button">Generate report</button>
+                    </div>
+                </div>
+
+                <div class="container mt-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">First name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Basic salary</th>
+                            <th scope="col">Extra pay</th>
+                            <th scope="col">Extra pay type</th>
+                            <th scope="col">Total salary</th>
+                        </tr>
+                        </thead>
+                        <tbody id="table-report-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            let departments = [];
+            let employees = [];
+            const formValidationError = `<div class="alert alert-danger" role="alert">Error! Check form data and try again.</div>`;
+            const requestValidationError = `<div class="alert alert-danger" role="alert">Error! Some fields in form are invalid. Fix them and try again.</div>`;
+            updateDepartmentsSelect();
+
+            $.ajax({
+                url: '/api/departments',
+                method: 'GET',
+                success: function (result) {
+                    departments = result;
+
+                    result.forEach(
+                        (department) => $('#departments-table-body').append(`
+                            <tr>
+                                <th scope="row">${department.id}</th>
+                                <td>${department.name}</td>
+                                <td>${department.extra_pay_type}</td>
+                                <td>${department.extra_pay_value}</td>
+                            </tr>
+                        `));
+
+                    updateDepartmentsSelect();
+                },
+            });
+
+            $.ajax({
+                url: '/api/employees',
+                method: 'GET',
+                success: function (result) {
+                    employees = result;
+
+                    result.forEach(
+                        (employee) => $('#employees-table-body').append(`
+                            <tr>
+                                <th scope="row">${employee.id}</th>
+                                <td>${employee.department_name}</td>
+                                <td>${employee.first_name}</td>
+                                <td>${employee.last_name}</td>
+                                <td>${employee.salary}$</td>
+                                <td>${employee.employed_at}</td>
+                            </tr>
+                        `));
+                },
+            });
+
+            function updateDepartmentsSelect()
+            {
+                departments.forEach((department) =>
+                    $('#department').append(`<option value="${department.id}">${department.name}</option>`)
+                );
+            }
+
+            $('#create-department-button').on('click', function () {
+                const departmentsAlertBlock = $('#departments-alert-block');
+
+                departmentsAlertBlock.html('');
+
+                const departmentName = $('#department_name').val();
+                const extraPayType = $('#extra_pay_type').val();
+                const extraPayValue = $('#extra_pay_value').val();
+
+                if (departmentName === '' || extraPayValue === '') {
+                    departmentsAlertBlock.append(formValidationError);
+
+                    return;
+                }
+
+                $.ajax({
+                    url: '/api/departments',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify({name: departmentName, extra_pay_type: extraPayType, extra_pay_value: extraPayValue}),
+                    success: function () {
+                        window.location.reload();
+                    }
+                });
+            });
+
+            $('#create-employee-button').on('click', function () {
+                const employeesAlertBlock = $('#employees-alert-block');
+
+                employeesAlertBlock.html('');
+
+                const departmentId = $('#department').val();
+                const firstName = $('#first_name').val();
+                const lastName = $('#last_name').val();
+                const salary = $('#salary').val();
+                const employedAt = $('#employedAt').val();
+
+                if (departmentId === '' || firstName === '' || lastName === '' || salary === '' || employedAt === '') {
+                    employeesAlertBlock.append(formValidationError);
+
+                    return;
+                }
+
+                $.ajax({
+                    url: '/api/employees',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify(
+                        {
+                            department_id: departmentId,
+                            first_name: firstName,
+                            last_name: lastName,
+                            salary: salary,
+                            employed_at: employedAt,
+                        }
+                    ),
+                    success: function () {
+                        window.location.reload();
+                    },
+                    error: function () {
+                        employeesAlertBlock.append(requestValidationError);
+                    }
+                });
+            });
+
+            $('#generate-report-button').on('click', function () {
+                let sortPath = '';
+                let departmentFilterPath = '';
+                let firstNameFilterPath = '';
+                let lastNameFilterPath = '';
+                const sortField = $('#sort_field').val();
+                const sortOrder = $('#sort_order').val();
+
+                if (sortField !== '') {
+                    sortPath = `sort[${sortField}]=${sortOrder}`;
+                }
+
+                const departmentFilter = $('#department_filter').val();
+                const firstNameFilter = $('#first_name_filter').val();
+                const lastNameFilter = $('#last_name_filter').val();
+
+                if (departmentFilter !== '') {
+                    departmentFilterPath = `filter[department]=${departmentFilter}`;
+                }
+
+                if (firstNameFilter !== '') {
+                    firstNameFilterPath = `filter[first_name]=${firstNameFilter}`;
+                }
+
+                if (lastNameFilter !== '') {
+                    lastNameFilterPath = `filter[last_name]=${lastNameFilter}`;
+                }
+
+                const uri = buildReportUri(sortPath, departmentFilterPath, firstNameFilterPath, lastNameFilterPath);
+
+                $.ajax({
+                    url: uri,
+                    method: 'GET',
+                    success: function (result) {
+                        $('#table-report-body').html('');
+
+                        result.forEach(
+                            (reportItem) => $('#table-report-body').append(`
+                            <tr>
+                                <td>${reportItem.first_name}</td>
+                                <td>${reportItem.last_name}</td>
+                                <td>${reportItem.department}</td>
+                                <td>${reportItem.basic_salary}$</td>
+                                <td>${reportItem.extra_pay}$</td>
+                                <td>${reportItem.extra_pay_type}</td>
+                                <td>${reportItem.salary} $$$</td>
+                            </tr>
+                        `));
+                    }
+                })
+            });
+
+            function buildReportUri(sortPath, departmentFilterPath, firstNameFilterPath, lastNameFilterPath)
+            {
+                let uri = '/api/payroll/report?';
+
+                if (sortPath !== '') {
+                    uri += sortPath;
+                }
+
+                if (departmentFilterPath !== '') {
+                    uri += '&' + departmentFilterPath;
+                }
+
+                if (firstNameFilterPath !== '') {
+                    uri += '&' + firstNameFilterPath;
+                }
+
+                if (lastNameFilterPath !== '') {
+                    uri += '&' + lastNameFilterPath;
+                }
+
+                return uri;
+            }
+        });
+    </script>
+</body>
+</html>

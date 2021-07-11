@@ -1,3 +1,29 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+dashboard:
+  path: /
+  controller: App\UI\Web\RenderDashboardAction
+  methods: [GET]
+
+api.payroll.report:
+  path: /api/payroll/report
+  controller: App\UI\Web\GeneratePayrollReportAction
+  methods: [GET]
+
+api.departments.addNew:
+  path: /api/departments
+  controller: App\UI\Web\AddNewDepartmentAction
+  methods: [POST]
+
+api.departments.getAll:
+  path: /api/departments
+  controller: App\UI\Web\GetAllDepartmentsAction
+  methods: [GET]
+
+api.employees.addNew:
+  path: /api/employees
+  controller: App\UI\Web\AddNewEmployeeAction
+  methods: [POST]
+
+api.employees.getAll:
+  path: /api/employees
+  controller: App\UI\Web\GetAllEmployeesAction
+  methods: [GET]
